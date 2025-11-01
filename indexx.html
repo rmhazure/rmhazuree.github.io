@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio Website</title>
+
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6f8;
+      color: #333;
+    }
+
+    header {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      background: #0055aa;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px;
+      display: block;
+    }
+
+    nav ul li a.active,
+    nav ul li a:hover {
+      background: #002244;
+      border-radius: 5px;
+    }
+
+    main {
+      padding: 30px;
+      text-align: center;
+    }
+
+    section {
+      display: none;
+      animation: fadeIn 0.6s ease-in-out;
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 80%;
+      margin: 20px auto;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    h2 {
+      color: #003366;
+      border-bottom: 2px solid #003366;
+      display: inline-block;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Welcome to My Portfolio</h1>
+    <p>Explore my Resume and Bio-data</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#" class="active" data-target="home">Home</a></li>
+      <li><a href="#" data-target="resume">Resume</a></li>
+      <li><a href="#" data-target="biodata">Bio-data</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- Home Section -->
+    <section id="home" class="active">
+      <h2>About Me</h2>
+      <p>Hello! I’m <strong>[NEHA HEGDE]</strong>, a passionate web developer learning to build responsive and modern websites using HTML, CSS, and JavaScript.</p>
+      <p>This is a multi-section single-page website demonstrating navigation, styling, and interactivity with jQuery.</p>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume">
+      <h2>My Resume</h2>
+
+      <h3>Education</h3>
+      <ul style="text-align:left;">
+        <li>BE in Computer Science Engineering – Gopalan college of engineering and management (2023–2027)</li>
+        <li>PUC-New baldwin international pu college (2021-2023)</li>
+        <li>SSLC-New brilliant school(2021)</li>
+      </ul>
+
+      <h3>Skills</h3>
+      <ul style="text-align:left;">
+        <li>programming:C,python,JavaScript</li>
+        <li>Web Development:HTML,CSS,React</li>
+        <li>Database:MySQL</li>
+        <Li>Version control:Git & GitHub</Li>
+        <li>Soft skill:Teamwork,Creativty,Time management</li>
+
+      </ul>
+
+      <h3>Projects</h3>
+      <ul style="text-align:left;">
+        <li><strong>Smart Parking</strong> </li>
+        <li><strong>Hospital management system</strong></li>
+        <li><strong>Student attendence and leave tracker</strong> </li>
+      </ul>
+    </section>
+
+    <!-- Bio-data Section -->
+    <section id="biodata">
+      <h2>Bio-data</h2>
+      <table>
+        <tr><th>Name</th><td>Neha Hegde</td></tr>
+        <tr><th>Date of Birth</th><td>17 July 2005</td></tr>
+        <tr><th>Gender</th><td>Female</td></tr>
+        <tr><th>Address</th><td>Bangalore,karnataka-560008</td></tr>
+        <tr><th>Email</th><td>nehegde2005@gmail.com</td></tr>
+        <tr><th>Phone</th><td>+91 9110690446</td></tr>
+        <tr><th>Languages Known</th><td>English, Hindi</td></tr>
+        <tr><th>Hobbies</th><td>Reading, Coding, Music</td></tr>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 [NEHA HEGDE]. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    $(document).ready(function() {
+      $("nav ul li a").click(function(e) {
+        e.preventDefault();
+        $("nav ul li a").removeClass("active");
+        $(this).addClass("active");
+
+        var target = $(this).data("target");
+        $("section").removeClass("active").hide();
+        $("#" + target).fadeIn().addClass("active");
+      });
+    });
+  </script>
+</body>
+</html>
